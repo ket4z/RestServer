@@ -1,15 +1,15 @@
 {
-    "name": "jacwright/restserver",
+    "name": "ket4z/restserver",
     "type": "library",
-    "description": "php rest server for very light-weight REST APIs",
+    "description": "PHP REST server for very light-weight REST APIs. forked from Jacob Wright's RestServer",
     "keywords": ["php", "rest", "rest-server", "light-weight", "http", "json", "mit"],
-    "homepage": "https://github.com/jacwright/RestServer",
+    "homepage": "https://github.com/ket4z/RestServer",
     "license": "MIT",
     "authors": [
         {
-            "name": "Jacob Wright",
-            "email": "jacwright@gmail.com",
-            "homepage": "http://jacwright.com",
+            "name": "Julius Ferianc",
+            "email": "julius@ferianc.com",
+            "homepage": "https://www.ferianc.com",
             "role": "Developer"
         }
     ],
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Jacwright\\RestServer": "source/"
+            "ket4z\\RestServer": "source/"
         }
     }
 }
