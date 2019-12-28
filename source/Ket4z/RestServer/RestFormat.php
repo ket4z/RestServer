@@ -23,7 +23,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-namespace Jacwright\RestServer;
+namespace Ket4z\RestServer;
 
 /**
  * Constants used in RestServer Class.
@@ -33,6 +33,7 @@ class RestFormat {
 	const HTML  = 'text/html';
 	const JSON  = 'application/json';
 	const XML   = 'application/xml';
+	const PNG	= 'image/png';
 
 	/** @var array */
 	static public $formats = array(
@@ -41,5 +42,6 @@ class RestFormat {
 		'html'  => RestFormat::HTML,
 		'json'  => RestFormat::JSON,
 		'xml'   => RestFormat::XML,
+		'png'	=> RestFormat::PNG,
 	);
 }

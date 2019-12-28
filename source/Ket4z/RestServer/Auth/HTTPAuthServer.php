@@ -1,7 +1,7 @@
 <?php
-namespace Jacwright\RestServer\Auth;
+namespace Ket4z\RestServer\Auth;
 
-class HTTPAuthServer implements \Jacwright\RestServer\AuthServer {
+class HTTPAuthServer implements \Ket4z\RestServer\AuthServer {
 	protected $realm;
 
 	public function __construct($realm = 'Rest Server') {
@@ -18,6 +18,6 @@ class HTTPAuthServer implements \Jacwright\RestServer\AuthServer {
 
 	public function unauthorized($classObj) {
 		header("WWW-Authenticate: Basic realm=\"$this->realm\"");
-		throw new \Jacwright\RestServer\RestException(401, "You are not authorized to access this resource.");
+		throw new \Ket4z\RestServer\RestException(401, "You are not authorized to access this resource.");
 	}
 }

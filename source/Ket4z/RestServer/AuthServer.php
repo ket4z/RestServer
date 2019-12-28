@@ -1,5 +1,5 @@
 <?php
-namespace Jacwright\RestServer;
+namespace Ket4z\RestServer;
 
 interface AuthServer {
 	/**
