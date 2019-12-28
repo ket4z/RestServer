@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-0": {
-            "ket4z\\RestServer": "source/"
+            "Ket4z\\RestServer": "source/"
         }
     }
 }
