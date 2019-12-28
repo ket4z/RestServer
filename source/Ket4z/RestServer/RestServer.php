@@ -85,7 +85,7 @@ class RestServer {
 		$this->root = $dir;
 
 		// For backwards compatability, register HTTPAuthServer
-		$this->setAuthHandler(new \Jacwright\RestServer\Auth\HTTPAuthServer);
+		$this->setAuthHandler(new \Ket4z\RestServer\Auth\HTTPAuthServer);
 	}
 
 	public function  __destruct() {
