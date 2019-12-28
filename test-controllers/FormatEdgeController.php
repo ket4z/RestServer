@@ -1,5 +1,5 @@
 <?php
-use \Jacwright\RestServer\RestException;
+use \Ket4z\RestServer\RestException;
 
 /**
  * Test Controller for handling edge cases between formats

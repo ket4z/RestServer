@@ -23,7 +23,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-namespace Jacwright\RestServer;
+namespace Ket4z\RestServer;
 
 require_once(__DIR__ . '/RestFormat.php');
 require_once(__DIR__ . '/RestException.php');
@@ -459,11 +459,27 @@ class RestServer {
 		$override = isset($_GET['format']) ? $_GET['format'] : $override;
 		if (isset(RestFormat::$formats[$override])) {
 			$format = RestFormat::$formats[$override];
+		} else if ($this->getFirstAvailableAccept($accept) !== false) { // look for first accept available in rest formats
+			$format = $this->getFirstAvailableAccept($accept);
 		} else if (in_array(RestFormat::JSON, $accept)) {
 			$format = RestFormat::JSON;
 		}
+		// otherwise retain PLAIN as set on first line of this method
 
 		return $format;
+	}
+
+	/**
+	 * @param $accepts
+	 * @return bool|mixed
+	 */
+	private function getFirstAvailableAccept($accepts) {
+		foreach ($accepts as $accept) {
+			if (array_search($accept, RestFormat::$formats, true) !== false) {
+				return $accept;
+			}
+		}
+		return false;
 	}
 
 	public function getData() {
@@ -492,6 +508,8 @@ class RestServer {
 			}
 
 			$this->xml_encode($data);
+		} else if ($this->format == RestFormat::PNG) {
+			echo $data;
 		} else {
 			if (is_object($data) && method_exists($data, '__keepOut')) {
 				$data = clone $data;
