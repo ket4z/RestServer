@@ -34,6 +34,7 @@ class RestFormat {
 	const JSON  = 'application/json';
 	const XML   = 'application/xml';
 	const PNG	= 'image/png';
+	const NONE	= 'none';
 
 	/** @var array */
 	static public $formats = array(
@@ -43,5 +44,6 @@ class RestFormat {
 		'json'  => RestFormat::JSON,
 		'xml'   => RestFormat::XML,
 		'png'	=> RestFormat::PNG,
+		'none'	=> RestFormat::NONE
 	);
 }

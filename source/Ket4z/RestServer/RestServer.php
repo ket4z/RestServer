@@ -123,6 +123,12 @@ class RestServer {
 			exit;
 		}
 
+		// HEAD is a body-less equivalent of GET, https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
+		if ($this->method == 'HEAD') {
+			$this->method = 'GET';
+			$this->format = RestFormat::NONE;
+		}
+
 		if ($this->method == 'PUT' || $this->method == 'POST' || $this->method == 'PATCH') {
 			$this->data = $this->getData();
 		}
@@ -510,6 +516,8 @@ class RestServer {
 			$this->xml_encode($data);
 		} else if ($this->format == RestFormat::PNG) {
 			echo $data;
+		} else if ($this->format == RestFormat::NONE) { // used for HEAD request
+			return null;
 		} else {
 			if (is_object($data) && method_exists($data, '__keepOut')) {
 				$data = clone $data;

@@ -2,8 +2,9 @@
 
 A PHP REST server for providing a very light-weight REST API. Very easy to set up and get going. Independent from other libraries and frameworks. Supports HTTP authentication.
 
-Forked from [Jacwright's RESTServer](https://github.com/jacwright/RestServer) v1.2.0 to with primary aim to add image response type. With full backwards compatibility with Jacwright's APIs in mind, everything else was pretty much retained (including this README) with major diffs restricting to:
+Forked from [Jacwright's RESTServer](https://github.com/jacwright/RestServer) v1.2.0 to with primary aim to add image response type and fixing some bugs. With full backwards compatibility with Jacwright's APIs in mind, everything else was pretty much retained (including this README) with major diffs restricting to:
 * Adding support for `image/png` return type (via `Accept` header and `png` format)
+* Adding support for HEAD http request 
 * Refactoring namespace `Jacwright` to `Ket4z` to avoid respective namespacing conflicts  
 * Adding missing README chapter about accept/return formats (including HOWTO on returning images), see `Response formats` chapter bellow
 * Fixing some README typos   
@@ -145,7 +146,7 @@ $server->handle();
 
 That’s it. You can add as many classes as you like. If there are conflicts, classes added later will overwrite duplicate URL mappings that were added earlier. And the second parameter in addClass can be a base URL which will be prepended to URL mappings in the given class, allowing you to be more modular.
 
-You can [view the RestServer class](https://github.com/ket4z/RestServer/blob/master/RestServer.php), copy it and use it for your own purposes. It is under the MIT license. Features to be added include XML support and HTTP Authentication support. If you make this class better please share your updates with everyone by leaving a comment. I will try and keep this class updated with new features as they are shared. I hope you enjoy!
+You can [view the RestServer class](https://github.com/ket4z/RestServer/blob/master/source/Ket4z/RestServer/RestServer.php), copy it and use it for your own purposes. It is under the MIT license. Features to be added include XML support and HTTP Authentication support. If you make this class better please share your updates with everyone by leaving a comment. I will try and keep this class updated with new features as they are shared. I hope you enjoy!
 
 Good luck and let me know if you end up using it!
 
@@ -220,7 +221,7 @@ You have control over how your REST service handles errors. You can add an error
 
 ### Response formats
 
-Several ways to request a specific response format are available. The most obvious (and recommended one) is using an `Accept` header in your request and requesting one of [available response formats](https://github.com/ket4z/RestServer/blob/master/RestFormat.php) such as `application/json`. Another one is using `format` key in your payload/query such as `xml`. There is another, dirtier way, using the "dot notation" within the requested endpoint route. I will not document this in order not to encourage its usage, dig it up in the code if you must :).      
+Several ways to request a specific response format are available. The most obvious (and recommended one) is using an `Accept` header in your request and requesting one of [available response formats](https://github.com/ket4z/RestServer/blob/master/source/Ket4z/RestServer/RestFormat.php) such as `application/json`. Another one is using `format` key in your payload/query such as `xml`. There is another, dirtier way, using the "dot notation" within the requested endpoint route. I will not document this in order not to encourage its usage, dig it up in the code if you must :).      
 
 Please note that if format is not specified, `text/plain` is returned.
 
